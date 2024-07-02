@@ -1,0 +1,34 @@
+function BTL_Chuyen_dong_trong_he_toa_do
+clc
+close all
+clear all
+%% BTL VL1 nhóm 17: Mai Thành Đạt
+%% INPUT Data Nhập dữ liệu đầu vào 
+disp('Mời bạn nhập dữ liệu đầu vào');
+t1 = input('t1= ');
+t2 = input('t2= ');
+x = 0;
+y = 0;
+t = 0;
+dt = 0.005;
+%% FIGURE Thiết lập trục tọa độ khảo sát
+figure('name','Chuyen_dong_trong_he_toa_do','color','white','numbertitle','off');
+hold on
+fig_honda = plot(x,y,'ro','MarkerSize',10,'markerfacecolor','r');
+ht = title(sprintf('t=%0.2fs',t));
+
+axis equal
+axis ([-100 10 0 50]);
+%% CALCULATION Phương trình chuyển động của vật
+
+while t<=t2
+    t = t+dt;
+    x = 3*t^2-(4/3)*t^3;
+    y = 8*t;
+    
+    plot(x,y,'o','markersize',2,'color','k');
+    set(fig_honda,'xdata',x,'ydata',y);
+    set(ht,'string',sprintf('t =%0.2fs',t));
+    pause(0.002);
+end
+end
